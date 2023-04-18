@@ -7,7 +7,7 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg") #Surface生成
     kk_img = pg.transform.flip(pg.image.load("ex01/fig/3.png"), True, False) #こうかとん生成
-    list = [kk_img, pg.transform.flip(kk_img, 10, 1.0)]
+    kk_imgs = [kk_img, pg.transform.rotozoom(kk_img, 10, 1.0)]
 
 
 
@@ -19,6 +19,7 @@ def main():
 
         tmr += 1
         screen.blit(bg_img, [0, 0])
+        screen.blit(kk_imgs[tmr%2], [300,200])
 
         pg.display.update()
         clock.tick(100)
